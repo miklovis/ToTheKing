@@ -2,6 +2,8 @@ package toTheKing;
 
 import org.jsfml.graphics.RenderWindow;
 import org.jsfml.window.Keyboard;
+import org.jsfml.window.Mouse;
+import org.jsfml.window.Mouse.Button;
 import org.jsfml.window.event.Event;
 
 
@@ -63,6 +65,8 @@ public class SystemActive {
                 this.currentStage = stageWindow;
                 window = levelWindow[currentLevel].createLevel();
                 createInstancePlayers();
+                players[0].revivePlayer(levelWindow[currentLevel]);
+                players[1].revivePlayer(levelWindow[currentLevel]);
                 createInstanceLevel();
                 System.out.println(levelWindow[currentLevel].getLevelComplete());
                 this.startUpLevel();
@@ -140,7 +144,7 @@ public class SystemActive {
             board.drawBoard();
             for (Event event : window.pollEvents()) {
                 // this.mousePress(event, guiWindow);
-                if (Keyboard.isKeyPressed(Keyboard.Key.LEFT)) {
+                if (Keyboard.isKeyPressed(Keyboard.Key.LEFT) || Mouse.isButtonPressed(Button.LEFT)) {
                     String goShop = board.buttonPress();
                     if(goShop.equals("shop")){
                         window.close();
@@ -174,14 +178,14 @@ public class SystemActive {
             // Handle events
             for (Event event : window.pollEvents()) {
                 // this.mousePress(event, guiWindow);
-                if (Keyboard.isKeyPressed(Keyboard.Key.LEFT)) {
+                if (Keyboard.isKeyPressed(Keyboard.Key.LEFT) || Mouse.isButtonPressed(Button.LEFT)) {
                     boolean goBack = shop.buttonPress(0);
                     if(goBack == true){
                         window.close();
                         viewLoader(1);
                     }
                 }
-                if (Keyboard.isKeyPressed(Keyboard.Key.RIGHT)) {
+                if (Keyboard.isKeyPressed(Keyboard.Key.RIGHT) || Mouse.isButtonPressed(Button.LEFT)) {
                     boolean goBack = shop.buttonPress(1);
                     if(goBack == true){
                         window.close();

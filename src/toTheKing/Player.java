@@ -412,4 +412,17 @@ public class Player {
 
 
     }
+
+    public void revivePlayer(LevelWindow level){
+        if(this.playerStatus == false){
+            this.setPlayerStatus(true);
+            this.setPlayerHealth(100);
+            if(playerNumber == 0){
+                this.setPlayerPosition(100, 510, 'F', level);
+            }
+            else{
+                this.setPlayerPosition(200, 510, 'F', level)
+            }
+        }
+    }
 }
