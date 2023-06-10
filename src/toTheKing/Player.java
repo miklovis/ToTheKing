@@ -421,7 +421,7 @@ public class Player {
                 this.setPlayerPosition(100, 510, 'F', level);
             }
             else{
-                this.setPlayerPosition(200, 510, 'F', level)
+                this.setPlayerPosition(200, 510, 'F', level);
             }
         }
     }
